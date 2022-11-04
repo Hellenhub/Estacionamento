@@ -52,7 +52,7 @@ public class MotoristaDAO {
             while (rs.next()) {
                 Motorista m = new Motorista();
                 m.setIdMotorista(rs.getInt("idMotorista"));
-                m.setNome(rs.getString("nomeCompleto"));
+                m.setNome(rs.getString("nome"));
                 m.setGenero(rs.getString("genero"));
                 m.setRG(rs.getInt("RG"));
                 m.setCPF(rs.getInt("CPF"));

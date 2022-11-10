@@ -6,6 +6,7 @@
 package view;
 import model.bean.Motorista;
 import model.dao.MotoristaDAO;
+
 /**
  *
  * @author 03969402000
@@ -47,6 +48,7 @@ public class JFCadastrarMotorista extends javax.swing.JFrame {
         jBTSenha = new javax.swing.JTextField();
         jBTCancelar = new javax.swing.JButton();
         jBTCadastrar = new javax.swing.JButton();
+        jLabel7 = new javax.swing.JLabel();
 
         jTextField2.setText("jTextField2");
 
@@ -85,55 +87,67 @@ public class JFCadastrarMotorista extends javax.swing.JFrame {
             }
         });
 
+        jLabel7.setText("jLabel7");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(35, 35, 35)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(Nome)
-                        .addGap(121, 121, 121)
-                        .addComponent(jLabel4))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(112, 112, 112)
-                        .addComponent(jLabel5))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jBTCPF, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 94, Short.MAX_VALUE)
-                            .addComponent(jBTRG)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jBTNome, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jBTGenero, javax.swing.GroupLayout.Alignment.LEADING))
+                        .addGap(35, 35, 35)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel3)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(42, 42, 42)
+                                .addComponent(jLabel1)
+                                .addGap(112, 112, 112)
+                                .addComponent(jLabel5))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(jBTCPF, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 94, Short.MAX_VALUE)
+                                    .addComponent(jBTRG)
+                                    .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jBTNome, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jBTGenero, javax.swing.GroupLayout.Alignment.LEADING))
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel6)
-                                    .addComponent(jBTCelular, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jBTEmail, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jBTSenha, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jBTCancelar, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jBTCadastrar, javax.swing.GroupLayout.Alignment.TRAILING))))))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(42, 42, 42)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel6)
+                                            .addComponent(jBTCelular, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addGap(9, 9, 9)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(jBTEmail, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(jBTSenha, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(jBTCancelar, javax.swing.GroupLayout.Alignment.TRAILING))
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addGap(3, 3, 3)
+                                                .addComponent(jBTCadastrar))))))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(24, 24, 24)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel7)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(Nome)
+                                .addGap(132, 132, 132)
+                                .addComponent(jLabel4)))))
                 .addContainerGap(153, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(Nome, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(20, 20, 20)
-                        .addComponent(jLabel4)))
-                .addGap(18, 18, 18)
+                        .addComponent(jLabel4))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jLabel7)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(Nome, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jBTNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jBTCelular, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -161,10 +175,10 @@ public class JFCadastrarMotorista extends javax.swing.JFrame {
                         .addComponent(jBTCPF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(1, 1, 1)
-                        .addComponent(jBTCancelar)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jBTCadastrar)
-                .addContainerGap())
+                        .addComponent(jBTCancelar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jBTCadastrar)))
+                .addContainerGap(27, Short.MAX_VALUE))
         );
 
         pack();
@@ -175,17 +189,25 @@ public class JFCadastrarMotorista extends javax.swing.JFrame {
     }//GEN-LAST:event_jBTNomeActionPerformed
 
     private void jBTCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBTCadastrarActionPerformed
-      Motorista m = new Motorista();
-      MotoristaDAO dao = new MotoristaDAO();
-      m.setNome(Integer.parseInt(jTFNome.getText()));
-      m.setGenero(jTFGenero.getText());
-      m.setRG(Integer.parsetInt(jTFRG.getText()));
-      m.setCPF(Integer.parsetInt(jTFCPF.getText()));
-      m.setCelular(Integer.parsetInt(jTFCelular.get Text()));
-      m.setEmail(jTFEmail.getText()));
-      m.setsenha(jTFSenha.getText()));
-     
-    dao.create(m); // TODO add your handling code here:
+        Motorista m = new Motorista();
+        MotoristaDAO dao = new MotoristaDAO();
+
+        m.setNome(jBTNome.getText());
+        m.setGenero(jBTGenero.getText());
+        m.setRG(Integer.parseInt(jBTRG.getText()));
+        m.setCPF(Integer.parseInt(jBTCPF.getText()));
+        m.setEmail(jBTEmail.getText());
+        m.setSenha(jBTSenha.getText());
+        m.setCelular(Integer.parseInt(jBTCelular.getText()));
+
+        dao.create(m);        // TODO add your handling code here:
+    
+        // TODO add your handling code here:
+   
+        // TODO add your handling code here:
+        
+ 
+    // TODO add your handling code here:
     }//GEN-LAST:event_jBTCadastrarActionPerformed
 
     /**
@@ -240,6 +262,7 @@ public class JFCadastrarMotorista extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField6;
     private javax.swing.JTextField jTextField7;

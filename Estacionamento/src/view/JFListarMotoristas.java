@@ -5,13 +5,11 @@
  */
 package view;
 
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import model.dao.MotoristaDAO;
 import model.bean.Motorista;
-import model.bean.Vaga;
-import model.dao.VagaDAO;
-
-
+/**
 
 
 /**
@@ -23,10 +21,9 @@ public class JFListarMotoristas extends javax.swing.JFrame {
     /**
      * Creates new form JFListarMotoristas
      */
-    public JFListarMotoristas() {
+  public JFListarMotoristas() {
         initComponents();
-    }
-
+  }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -37,21 +34,18 @@ public class JFListarMotoristas extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        jTMotorista = new javax.swing.JTable();
+        jLabel2 = new javax.swing.JLabel();
+        BtnCadastrar = new javax.swing.JButton();
+        BtnEditar = new javax.swing.JButton();
+        BtnExcluir = new javax.swing.JButton();
 
         jLabel1.setText("jLabel1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel2.setText("Listar Motoristas");
-        jLabel2.setToolTipText("");
-
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        jTMotorista.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null, null},
@@ -70,18 +64,31 @@ public class JFListarMotoristas extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(jTMotorista);
 
-        jButton1.setText("cadastrar motorista");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jLabel2.setText("Listar Motoristas");
+        jLabel2.setToolTipText("");
+
+        BtnCadastrar.setText("cadastrar motorista");
+        BtnCadastrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                BtnCadastrarActionPerformed(evt);
             }
         });
 
-        jButton2.setText("editar motorista");
+        BtnEditar.setText("editar motorista");
+        BtnEditar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnEditarActionPerformed(evt);
+            }
+        });
 
-        jButton3.setText("excluir motorista");
+        BtnExcluir.setText("excluir motorista");
+        BtnExcluir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnExcluirActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -96,11 +103,11 @@ public class JFListarMotoristas extends javax.swing.JFrame {
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 417, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(88, 88, 88)
-                        .addComponent(jButton1)
+                        .addComponent(BtnCadastrar)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton2)
+                        .addComponent(BtnEditar)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton3)))
+                        .addComponent(BtnExcluir)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -108,41 +115,61 @@ public class JFListarMotoristas extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jLabel2)
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(56, 56, 56)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2)
-                    .addComponent(jButton3))
+                    .addComponent(BtnCadastrar)
+                    .addComponent(BtnEditar)
+                    .addComponent(BtnExcluir))
                 .addGap(0, 78, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void BtnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCadastrarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_BtnCadastrarActionPerformed
 
-     public void readjTable(){
+    private void BtnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnExcluirActionPerformed
+
+    if(jTMotorista.getSelectedRow()!= -1){
+          int opcao = JOptionPane.showConfirmDialog(null, "Deseja excluir o motorista selecionada?", "Exclusao", JOptionPane.YES_NO_OPTION);
+          if(opcao == 0) {
+              MotoristaDAO dao = new MotoristaDAO();
+              Motorista m = new Motorista();
+              m.setIdMotorista((int)jTMotorista.getValueAt(jTMotorista.getSelectedRow(), 0));
+              dao.delete(m);
+          }
+      }else{
+          JOptionPane.showMessageDialog(null,"Selecione um motorista", "Erro",JOptionPane.ERROR_MESSAGE);
+      } 
+      readjTable();
+       // TODO add your handling code here:
+    }//GEN-LAST:event_BtnExcluirActionPerformed
+
+    private void BtnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnEditarActionPerformed
+
+// TODO add your handling code here:
+    }//GEN-LAST:event_BtnEditarActionPerformed
+
+    public void readjTable() {
         DefaultTableModel modelo = (DefaultTableModel) jTMotorista.getModel();
         modelo.setNumRows(0);
         MotoristaDAO dao = new MotoristaDAO();
-        for (Motorista m: dao.read()){
+        for (Motorista m : dao.read()) {
             modelo.addRow(new Object[]{
-            m.getIdMotorista(),
-            m.getNome(),
-            m.getGenero(),
-            m.getRG(),
-            m.getCPF(),
-            m.getCelular(),
-            m.getEmail(),
-            m.getSenha(),
-            });
-        }
-        }
-    
-   
+                m.getIdMotorista(),
+                m.getNome(),
+                m.getGenero(),
+                m.getRG(),
+                m.getCPF(),
+                m.getCelular(),
+                m.getEmail(),
+                m.getSenha(),});
+}
+    }
+
     /**
      * @param args the command line arguments
      */
@@ -179,12 +206,13 @@ public class JFListarMotoristas extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JButton BtnCadastrar;
+    private javax.swing.JButton BtnEditar;
+    private javax.swing.JButton BtnExcluir;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable jTMotorista;
     // End of variables declaration//GEN-END:variables
 }
+

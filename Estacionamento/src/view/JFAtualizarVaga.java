@@ -13,6 +13,7 @@ import model.dao.VagaDAO;
  */
 public class JFAtualizarVaga extends javax.swing.JFrame {
 
+    private static int idVaga;
     /**
      * Creates new form JFAtualizarVaga
      */
@@ -203,9 +204,9 @@ public class JFAtualizarVaga extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jRBObliqua)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(jRBParalela))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jRBParalela)
+                    .addComponent(jLabel3))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jBtnSalvar)
@@ -238,7 +239,17 @@ public class JFAtualizarVaga extends javax.swing.JFrame {
     }//GEN-LAST:event_jBtnLimparActionPerformed
 
     private void jBtnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnSalvarActionPerformed
-       
+        Vaga v = new Vaga();
+        VagaDAO vdao = new VagaDAO();
+        v.setIdVaga(Integer.parseInt(lblIdVaga.getText()));
+        v.setNumero(Integer.parseInt(jTFNumero.getText()));
+        v.setRua(jTFRua.getText());
+        if(jRBObliqua.isSelected()){
+            v.setObliquo(true);
+        }else if(jRBParalela.isSelected()){
+            v.setObliquo(false);
+        }
+        vdao.update(v);
         // TODO add your handling code here:
     }//GEN-LAST:event_jBtnSalvarActionPerformed
 
@@ -279,8 +290,9 @@ public class JFAtualizarVaga extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new JFAtualizarVaga().setVisible(true);
+            public void run() { 
+                JFAtualizarVaga frame = new JFAtualizarVaga(idVaga);
+                frame.setVisible(true);
             }
         });
     }

@@ -63,20 +63,14 @@ public class JFListarVagas extends javax.swing.JFrame {
                 {null, null, null, null},
                 {null, null, null, null},
                 {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
                 {null, null, null, null}
             },
             new String [] {
                 "id vaga", "numero", "rua", "obliqua"
             }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false
-            };
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
+        ));
         jScrollPane1.setViewportView(jTVaga);
 
         jBtnCadastrar.setText("Cadastrar vaga");
@@ -102,20 +96,20 @@ public class JFListarVagas extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(29, 29, 29)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(10, 10, 10)
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 463, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabel1)))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(55, 55, 55)
                         .addComponent(jBtnCadastrar)
                         .addGap(26, 26, 26)
                         .addComponent(jBtnEditar)
                         .addGap(18, 18, 18)
-                        .addComponent(jBtnExcluir)))
-                .addContainerGap(133, Short.MAX_VALUE))
+                        .addComponent(jBtnExcluir))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(29, 29, 29)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(10, 10, 10)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 487, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel1))))
+                .addContainerGap(109, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -136,7 +130,7 @@ public class JFListarVagas extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        readjTable();
+        readJTable();
         
     }//GEN-LAST:event_formWindowOpened
 
@@ -152,14 +146,23 @@ public class JFListarVagas extends javax.swing.JFrame {
       }else{
           JOptionPane.showMessageDialog(null,"Selecione uma vaga", "Erro",JOptionPane.ERROR_MESSAGE);
       } 
-      readjTable();
+      readJTable();
     }//GEN-LAST:event_jBtnExcluirActionPerformed
 
     private void jBtnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnEditarActionPerformed
+        if(jTVaga.getSelectedRow() != -1){
+            int vagaSelecionada = (int)jTVaga.getValueAt(jTVaga.getSelectedRow(), 0);
+            JFAtualizarVaga av = new JFAtualizarVaga(vagaSelecionada);
+            av.setVisible(true);
+        }else{
+            
+          JOptionPane.showMessageDialog(null,"Selecione uma vaga", "Erro", JOptionPane.ERROR_MESSAGE);
+        }
+        readJTable();
         // TODO add your handling code here:
     }//GEN-LAST:event_jBtnEditarActionPerformed
 
-    public void readjTable(){
+    public void readJTable(){
         DefaultTableModel modelo = (DefaultTableModel) jTVaga.getModel();
         modelo.setNumRows(0);
         VagaDAO dao = new VagaDAO();

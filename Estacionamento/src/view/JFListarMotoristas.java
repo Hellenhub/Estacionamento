@@ -9,7 +9,6 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import model.dao.MotoristaDAO;
 import model.bean.Motorista;
-/**
 
 
 /**
@@ -134,7 +133,7 @@ public class JFListarMotoristas extends javax.swing.JFrame {
     private void BtnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnExcluirActionPerformed
 
     if(jTMotorista.getSelectedRow()!= -1){
-          int opcao = JOptionPane.showConfirmDialog(null, "Deseja excluir o motorista selecionada?", "Exclusao", JOptionPane.YES_NO_OPTION);
+          int opcao = JOptionPane.showConfirmDialog(null, "Deseja excluir o motorista selecionado?", "Exclusao", JOptionPane.YES_NO_OPTION);
           if(opcao == 0) {
               MotoristaDAO dao = new MotoristaDAO();
               Motorista m = new Motorista();
@@ -144,16 +143,23 @@ public class JFListarMotoristas extends javax.swing.JFrame {
       }else{
           JOptionPane.showMessageDialog(null,"Selecione um motorista", "Erro",JOptionPane.ERROR_MESSAGE);
       } 
-      readjTable();
+      readJTable();
        // TODO add your handling code here:
     }//GEN-LAST:event_BtnExcluirActionPerformed
 
     private void BtnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnEditarActionPerformed
-
-// TODO add your handling code here:
+        
+        if(jTMotorista.getSelectedRow() != -1){
+            int motoristaSelecionada = (int)jTMotorista.getValueAt(jTMotorista.getSelectedRow(), 0);
+            JFAtualizarMotorista av = new JFAtualizarMotorista(motoristaSelecionada);
+            av.setVisible(true);
+        }else{
+            
+          JOptionPane.showMessageDialog(null,"Selecione um Motorista", "Erro", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_BtnEditarActionPerformed
 
-    public void readjTable() {
+    public void readJTable(){
         DefaultTableModel modelo = (DefaultTableModel) jTMotorista.getModel();
         modelo.setNumRows(0);
         MotoristaDAO dao = new MotoristaDAO();
@@ -166,8 +172,9 @@ public class JFListarMotoristas extends javax.swing.JFrame {
                 m.getCPF(),
                 m.getCelular(),
                 m.getEmail(),
-                m.getSenha(),});
-}
+                m.getSenha()
+            });
+        }
     }
 
     /**
@@ -215,4 +222,3 @@ public class JFListarMotoristas extends javax.swing.JFrame {
     private javax.swing.JTable jTMotorista;
     // End of variables declaration//GEN-END:variables
 }
-

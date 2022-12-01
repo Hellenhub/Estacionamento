@@ -5,8 +5,8 @@
  */
 package view;
 
-import model.bean.Vaga;
-import model.dao.VagaDAO;
+import model.bean.Motorista;
+import model.dao.MotoristaDAO;
 
 /**
  *
@@ -24,16 +24,17 @@ public class JFAtualizarMotorista extends javax.swing.JFrame {
 
         MotoristaDAO mdao = new MotoristaDAO();
         Motorista m = mdao.read(idMotorista);
-        lblIdMotorista.setText(String.valueOf(m.getIdMotorista()));
-        jTFNome.setText(String.valueOf(m.getNome()));
-        jTFGenero.setText(m.getGenero());
-        jTFRG.setText(m.getRG());
-        jTFCPF.setText(m.getCPF());
-        jTFCelular.setText(m.getCelular());
-        jTFEmail.setText(m.getEmail());
-        jTFSenha.setText(m.getSenha());
-
+        lblidMotorista.setText(String.valueOf(m.getIdMotorista()));
+        jBTNome.setText(m.getNome());
+        jBTGenero.setText(m.getGenero());
+        jBTCelular.setText(String.valueOf(m.getCelular()));
+        jBTRG.setText(String.valueOf(m.getRG()));
+        jBTCPF.setText(String.valueOf(m.getCPF()));
+        jBTEmail.setText(m.getEmail());
+        jBTSenha.setText(m.getSenha());
+        
     }
+    
 
 
 
@@ -63,6 +64,7 @@ public class JFAtualizarMotorista extends javax.swing.JFrame {
         jBTCancelar = new javax.swing.JButton();
         jBTCadastrar = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
+        lblidMotorista = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -96,6 +98,8 @@ public class JFAtualizarMotorista extends javax.swing.JFrame {
         });
 
         jLabel7.setText("Motorista atualizado");
+
+        lblidMotorista.setText("jLabel8");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -137,7 +141,10 @@ public class JFAtualizarMotorista extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(24, 24, 24)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel7)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel7)
+                                .addGap(18, 18, 18)
+                                .addComponent(lblidMotorista))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(Nome)
                                 .addGap(132, 132, 132)
@@ -152,7 +159,9 @@ public class JFAtualizarMotorista extends javax.swing.JFrame {
                         .addGap(20, 20, 20)
                         .addComponent(jLabel4))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel7)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel7)
+                            .addComponent(lblidMotorista))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(Nome, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -199,7 +208,7 @@ public class JFAtualizarMotorista extends javax.swing.JFrame {
     private void jBTCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBTCadastrarActionPerformed
         Motorista m = new Motorista();
         MotoristaDAO mdao = new MotoristaDAO();
-
+        m.setIdMotorista(Integer.parseInt(lblidMotorista.getText()));
         m.setNome(jBTNome.getText());
         m.setGenero(jBTGenero.getText());
         m.setRG(Integer.parseInt(jBTRG.getText()));
@@ -286,7 +295,7 @@ public class JFAtualizarMotorista extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-               JFTAtualizarMotorista frame = new JFAtualizaMotorista
+               JFAtualizarMotorista frame = new JFAtualizarMotorista(idMotorista);
                frame.setVisible(true);
             }
         });
@@ -313,5 +322,6 @@ public class JFAtualizarMotorista extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel lblidMotorista;
     // End of variables declaration//GEN-END:variables
 }

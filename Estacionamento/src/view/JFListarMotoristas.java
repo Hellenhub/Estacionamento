@@ -43,6 +43,11 @@ public class JFListarMotoristas extends javax.swing.JFrame {
         jLabel1.setText("jLabel1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
 
         jTMotorista.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -125,7 +130,10 @@ public class JFListarMotoristas extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+                   
+    
 
+    
     private void BtnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCadastrarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_BtnCadastrarActionPerformed
@@ -158,6 +166,11 @@ public class JFListarMotoristas extends javax.swing.JFrame {
           JOptionPane.showMessageDialog(null,"Selecione um Motorista", "Erro", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_BtnEditarActionPerformed
+
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        // TODO add your handling code here:
+        readJTable();
+    }//GEN-LAST:event_formWindowOpened
 
     public void readJTable(){
         DefaultTableModel modelo = (DefaultTableModel) jTMotorista.getModel();

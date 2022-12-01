@@ -22,7 +22,7 @@ public class MotoristaDAO {
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement stmt = null;
         try {
-            stmt = con.prepareStatement("INSERT INTO motorista (nomeCompleto, genero,RG,CPF, celular, email, senha) VALUES (?,?,?,?,?,?,?)");
+            stmt = con.prepareStatement("INSERT INTO motorista (nome, genero,RG,CPF, celular, email, senha) VALUES (?,?,?,?,?,?,?)");
             stmt.setString(1, m.getNome());
             stmt.setString(2, m.getGenero());
             stmt.setInt(3, m.getRG());
@@ -45,9 +45,9 @@ public class MotoristaDAO {
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement stmt = null;
         ResultSet rs = null;
-        List<Motorista> motorista = new ArrayList<>();
+        List<Motorista> motoristas = new ArrayList<>();
         try {
-            stmt = con.prepareStatement("SELECT * FRON motorista;");
+            stmt = con.prepareStatement("SELECT * FROM motorista;");
             rs = stmt.executeQuery();
             while (rs.next()) {
                 Motorista m = new Motorista();
@@ -60,7 +60,7 @@ public class MotoristaDAO {
                 m.setEmail(rs.getString("email"));
                 m.setSenha(rs.getString("senha"));
 
-                motorista.add(m);
+                motoristas.add(m);
             }
         } catch (SQLException e) {
             throw new RuntimeException("Erro de buscar os dados: ", e);
@@ -69,7 +69,7 @@ public class MotoristaDAO {
             ConnectionFactory.closeConnection(con, stmt, rs);
 
         }
-        return motorista;
+        return motoristas;
     }
  public void delete(Motorista m) {
        Connection con = ConnectionFactory.getConnection();
@@ -121,7 +121,7 @@ public class MotoristaDAO {
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement stmt = null;
         try {
-            stmt = con.prepareStatement("UPDATE motorista SET nome=?, genero=?, RG=?, CPF=?, celular=?, email=?, senha=?, WHERE idMotorista=?");
+            stmt = con.prepareStatement("UPDATE motorista SET nome=?, genero=?, RG=?, CPF=?, celular=?, email=?, senha=? WHERE idMotorista=?");
             stmt.setString(1, m.getNome());
             stmt.setString(2, m.getGenero());
             stmt.setInt(3, m.getRG());

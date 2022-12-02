@@ -65,6 +65,7 @@ public class JFAtualizarMotorista extends javax.swing.JFrame {
         jBTCadastrar = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
         lblidMotorista = new javax.swing.JLabel();
+        jBntLimpar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Atualizar Motorista");
@@ -102,6 +103,13 @@ public class JFAtualizarMotorista extends javax.swing.JFrame {
 
         lblidMotorista.setText("jLabel8");
 
+        jBntLimpar.setText("LIMPAR");
+        jBntLimpar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBntLimparActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -134,11 +142,13 @@ public class JFAtualizarMotorista extends javax.swing.JFrame {
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                 .addComponent(jBTEmail, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(jBTSenha, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(jBTCancelar, javax.swing.GroupLayout.Alignment.TRAILING))
+                                                .addComponent(jBTSenha, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE))
                                             .addGroup(layout.createSequentialGroup()
                                                 .addGap(3, 3, 3)
-                                                .addComponent(jBTCadastrar))))))))
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addComponent(jBTCancelar)
+                                                    .addComponent(jBTCadastrar)
+                                                    .addComponent(jBntLimpar)))))))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(24, 24, 24)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -186,17 +196,19 @@ public class JFAtualizarMotorista extends javax.swing.JFrame {
                     .addComponent(jBTRG, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jBTSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(jLabel3)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel3)
+                    .addComponent(jBntLimpar, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addComponent(jBTCPF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(1, 1, 1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jBTCancelar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jBTCadastrar)))
-                .addContainerGap(19, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -229,6 +241,19 @@ public class JFAtualizarMotorista extends javax.swing.JFrame {
 
         // TODO add your handling code here:
     }//GEN-LAST:event_jBTCadastrarActionPerformed
+
+    private void jBntLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBntLimparActionPerformed
+
+        jBTNome.setText("");
+        jBTCPF.setText("");
+        jBTRG.setText("");
+        jBTGenero.setText("");
+        jBTEmail.setText("");
+        jBTSenha.setText("");
+        jBTCelular.setText("");
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jBntLimparActionPerformed
 
     /**
      * @param args the command line arguments
@@ -316,6 +341,7 @@ public class JFAtualizarMotorista extends javax.swing.JFrame {
     private javax.swing.JTextField jBTNome;
     private javax.swing.JTextField jBTRG;
     private javax.swing.JTextField jBTSenha;
+    private javax.swing.JButton jBntLimpar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

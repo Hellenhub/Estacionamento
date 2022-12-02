@@ -67,7 +67,8 @@ public class JFCadastrarVaga extends javax.swing.JFrame {
         jMenu2.setText("Edit");
         jMenuBar1.add(jMenu2);
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Cadastrar Vaga");
 
         jLabel3.setText("Cadrastrar Vaga");
 
@@ -181,8 +182,8 @@ public class JFCadastrarVaga extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jBtnCancelar)
-                    .addComponent(jBtnLimpar)
-                    .addComponent(jBtnSalvar))
+                    .addComponent(jBtnSalvar)
+                    .addComponent(jBtnLimpar))
                 .addContainerGap(29, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
@@ -225,6 +226,10 @@ public class JFCadastrarVaga extends javax.swing.JFrame {
     }//GEN-LAST:event_jTFNumeroActionPerformed
 
     private void jBtnLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnLimparActionPerformed
+     jTFRua.setText("");
+     jTFNumero.setText("");
+     BGTipoVaga.clearSelection();
+     
         // TODO add your handling code here:
     }//GEN-LAST:event_jBtnLimparActionPerformed
 

@@ -57,6 +57,7 @@ public class JFCadastrarMotorista extends javax.swing.JFrame {
         jTextField7.setText("jTextField7");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Cadastrar Motoristas");
 
         Nome.setText("nome");
 

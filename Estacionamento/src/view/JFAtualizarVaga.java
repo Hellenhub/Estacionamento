@@ -75,7 +75,8 @@ public class JFAtualizarVaga extends javax.swing.JFrame {
 
         jLabel1.setText("jLabel1");
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Atualizar Vagas");
 
         jLabel5.setText("Numero");
 
@@ -227,6 +228,7 @@ public class JFAtualizarVaga extends javax.swing.JFrame {
     }//GEN-LAST:event_jTFNumeroActionPerformed
 
     private void jRBParalelaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRBParalelaActionPerformed
+        dispose();
         // TODO add your handling code here:
     }//GEN-LAST:event_jRBParalelaActionPerformed
 
@@ -254,6 +256,12 @@ public class JFAtualizarVaga extends javax.swing.JFrame {
     }//GEN-LAST:event_jBtnSalvarActionPerformed
 
     private void jBntLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBntLimparActionPerformed
+     jTFRua.setText("");
+     jTFNumero.setText("");
+     bGTipoVga.clearSelection();
+     
+    
+
         // TODO add your handling code here:
     }//GEN-LAST:event_jBntLimparActionPerformed
 
